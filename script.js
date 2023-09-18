@@ -1,100 +1,65 @@
+let num = 10;
 
-    console.log("I heard you was a pedophile.");
+if(num > 10) {
+    console.log('Suurem');
+} else if(num === 10) {
+    console.log('Võrdne');
+} else {
+    console.log('Väiksem');
+}
 
-    //start of var num
+let day = 0;
 
-    var num = 2;
-    console.log(num);
+switch(day) {
+    case 0:
+        console.log('Esmaspäev');
+        break;
+    case 1:
+        console.log('Teisipäev');
+        break;
+    case 2:
+        console.log('Kolmapäev');
+        break;
+    case 3:
+        console.log('Neljapäev');
+        break;
+    case 4:
+        console.log('Reede');
+        break;
+    case 5: //does nothing, just skips to 6
+    case 6:
+        console.log('Nädalavahetus');
+        break;
+    default:
+        console.log('Whaaaatttt');
+        break;
+}
 
-    num = num + 2;
+for(let i=10;i>1;i/=2){ //eraldamine alamkriipsuga. 1000000 = 1_000_000
+    console.log(i);
+}
 
-    num = 5 + 2 * 4 / 6 - 6;
+// let minutes = new Date().getMinutes();
+// console.log(minutes);
+// while(minutes+1 != new Date().getMinutes() ) {
+//     console.log('old minute');
+// }
+// console.log('new minute has started');
+let i=1
+while(i>10) {
+    console.log('while ' + i);
+}
+i=1
+do {
+    console.log('do ' + i);
+} while(i>10);
 
-    num += 3;
-    num -= 4;
-    num *= 4;
-    num /= 4;
-    num++;
-    num--;
-    num = 11 % 2;
-    num = 2;
-    num = num**3;
-    console.log(typeof num);
+let fruits= ['apple', 'pear', 'mango', 'tomato'];
 
-    //end of var num
-    //start of string
+for(let i=0; i<fruits.length; i++) {
+    console.log(fruits[i]);
+}
 
-    let string = 'I heard you was a pedophile.';
-
-
-    string += '.. WHAT!';
-    console.log(string);
-    console.log(typeof string);
-
-    //end of string
-    //start of bool area
-
-    let bool = true;
-    bool = false;
-
-    bool = true && false;
-    bool = true || false;
-    bool = !bool;
-    bool = false && true || true && !false;
-    num = 10;
-    bool = 2 > num;
-    bool = 2 < num;
-    bool = 10 == num;
-    bool = 10 <= num;
-    bool = 10 >= num;
-    bool = 10 != num;
-    bool = '10' === num;
-    bool = '10' !== num;
-    console.log(bool);
-    console.log(typeof bool);
-
-    //end of bool area
-    //start of null/undefined
-
-    let novalue = null;
-    let novalue2 = undefined;
-    console.log(novalue2); //undefined
-    num = 0 * -1;
-    num = 0.1 + 0.2;
-    console.log(num);
-
-    //end of null/undefined
-    //start of array
-
-    let array = [1, 2, 3, 4];
-    array = ["four", undefined, null, 1];
-    console.log(array);
-    console.log(array[0]); //prints the position
-    array[0] = 7;
-    console.log(array[0]);
-    array = [
-        [1, 2, 3, 4],
-        [5, 6, 7, 8],
-        [9, 10, 11, 12]
-    ];
-    console.log(array[1][1]); //valib spetsiifilise numbri
-    array = [ [ [ [ [5] ] ] ] ];
-    console.log(array[0][0][0][0][0]);
-
-    //end of array
-    //start of obj
-
-    let obj = {
-        name: "Magnus",
-        age: "17",
-        eyeColor: "Green",
-        favclasses: ["monk", "druid", "warlock"]
-    };
-
-    console.log(obj); //broad term
-    console.log(obj.favclasses); //specific term
-    console.log(obj.favclasses[1]); //specificer term
-    console.log(console);
-    console.log(array.length);
-    console.log(string.length);
-    console.log(string [0]);
+fruits.forEach(function (fruit) {
+    console.log(fruit);
+});
