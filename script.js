@@ -1,65 +1,66 @@
-let num = 10;
-
-if(num > 10) {
-    console.log('Suurem');
-} else if(num === 10) {
-    console.log('Võrdne');
-} else {
-    console.log('Väiksem');
+function hello(name = 'Nimetu', age=Infinity){
+    let yearText = 'years';
+    if(age === 1){
+        yearText = 'year';
+    }
+    // console.log('Hello ' + name + '. You are ' + age + ' years old.');
+    console.log(`Hello ${name}. You are ${age} ${yearText} old`);
 }
 
-let day = 0;
+hello('Magnus',17);
+hello('Nigel',128);
+hello('Raul',1);
+hello();
 
-switch(day) {
-    case 0:
-        console.log('Esmaspäev');
-        break;
-    case 1:
-        console.log('Teisipäev');
-        break;
-    case 2:
-        console.log('Kolmapäev');
-        break;
-    case 3:
-        console.log('Neljapäev');
-        break;
-    case 4:
-        console.log('Reede');
-        break;
-    case 5: //does nothing, just skips to 6
-    case 6:
-        console.log('Nädalavahetus');
-        break;
-    default:
-        console.log('Whaaaatttt');
-        break;
+function volume(h, l, w){
+    return h*w*l;
 }
 
-for(let i=10;i>1;i/=2){ //eraldamine alamkriipsuga. 1000000 = 1_000_000
+let answer = volume(4,2,5);
+console.log(answer);
+
+function numbers(i) {
     console.log(i);
+    if(i<10){
+        numbers(i+1);
+    }
 }
 
-// let minutes = new Date().getMinutes();
-// console.log(minutes);
-// while(minutes+1 != new Date().getMinutes() ) {
-//     console.log('old minute');
-// }
-// console.log('new minute has started');
-let i=1
-while(i>10) {
-    console.log('while ' + i);
-}
-i=1
-do {
-    console.log('do ' + i);
-} while(i>10);
+numbers(0);
 
-let fruits= ['apple', 'pear', 'mango', 'tomato'];
+let nums = [0,1,2,3,4];
 
-for(let i=0; i<fruits.length; i++) {
-    console.log(fruits[i]);
+function print(num){
+    console.log(num);
 }
 
-fruits.forEach(function (fruit) {
-    console.log(fruit);
+nums.forEach(print);
+nums.forEach(num => { //usually this would be nums.forEach(function (num) {..., but since we have a single modifier, then we can shorten it.
+    console.log(`Num is ${num}`)
 });
+nums.forEach(num => console.log(`Num is ${num}`)); //shortest version
+
+let sums = nums.map(num => {
+    return num + 10;
+});
+console.log(sums);
+
+sums = nums.map(num => num + 10); //doesn't require return if one line
+console.log(sums);
+
+let sum = nums.reduce((total, num) => total + num);
+console.log(sums);
+
+let sorted = nums.sort((a,b) => {
+    if(a > b) {
+        return -1; //when 1 and -1 are flipped, array counts from other end
+    } else if(a < b) {
+        return 1;
+    } else {
+        return 0;
+    }
+});
+console.log(sorted);
+
+console.log(Math.PI);
+console.log(Math.round(Math.random() *50) + 50);
