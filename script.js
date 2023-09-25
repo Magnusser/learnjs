@@ -4,24 +4,31 @@ let ctx = canvas.getContext('2d');
 
 let x = 10;
 let y = 10;
+let pressed = false;
+let arcSize = 20;
 setInterval(() => {
-    ctx.reset();
-    ctx.fillRect(x,y,30,30);    
+    if(pressed){
+        ctx.beginPath();
+        ctx.arc(x,y,arcSize,0,2 * Math.PI);
+        ctx.fill();   
+    } 
 }, 16);
 
-canvas.addEventListener('keydown', event => {
+canvas.addEventListener('mousemove', event => {
     console.log(event);
-    if(event.code == 'KeyW'){
-        y-=5;
-    }
-    if(event.code == 'KeyS'){
-        y+=5;
-    }
-    if(event.code == 'KeyA'){
-        x-=5;
-    }
-    if(event.code == 'KeyD'){
-        x+=5;
-    }
+    x = event.clientX - canvas.offsetLeft;
+    y = event.clientY - canvas.offsetTop;
+});
+canvas.addEventListener('mousedown', event => {
+    pressed = true;
+});
+canvas.addEventListener('mouseup', event => {
+    pressed = false;
+});
+let size = document.querySelector('#size');
+let sizeValue = document.querySelector('#sizeValue');
+sizeValue.innerHTML = size.value;
+size.addEventListener('input', ()=> {
+    sizeValue.innerHTML = size.value;
+    arcSize = size.value;
 })
-
